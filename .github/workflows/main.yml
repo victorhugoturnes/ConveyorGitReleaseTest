@@ -18,14 +18,9 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew build
 
-#      - name: Download Windows build
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: build-windows-amd64
-#           Windows is not in a tarball, so we extract to a separate directory.
-#          path: ./artifacts/windows
-        
       - name: Run Conveyor     
+        env:
+          PAGES_KEY: ${{ secrets.PAGES_KEY }}
         uses: hydraulic-software/conveyor/actions/build@v1
         with:
           command: make copied-site          
