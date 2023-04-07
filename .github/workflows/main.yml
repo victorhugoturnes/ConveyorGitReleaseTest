@@ -2,6 +2,8 @@ name: Deploy to GitHubPages
 
 on:
   push:
+    branches:
+      - main
 jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
