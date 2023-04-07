@@ -17,6 +17,7 @@ repositories {
 }
 
 dependencies {
+    implementation(compose.desktop.currentOs)
 //    "linuxAmd64"(compose.desktop.linux_x64)
     "macAmd64"(compose.desktop.macos_x64)
     "macAarch64"(compose.desktop.macos_arm64)
