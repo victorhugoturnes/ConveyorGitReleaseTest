@@ -17,12 +17,6 @@ jobs:
 
       - name: Execute Gradle build
         run: ./gradlew build
-  deploy:
-    needs: [build-gradle-project]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
       - name: Download Windows build
         uses: actions/download-artifact@v3
