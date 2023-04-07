@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.example"
-version = "1.0.1"
+version = "1.0.2"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 compose.desktop.application.mainClass = "MainKt"
 
@@ -17,10 +17,19 @@ repositories {
 }
 
 dependencies {
-    implementation(compose.desktop.currentOs)
+    implementation(compose.desktop.windows_x64)
 }
 
-tasks.processResources {
-    inputs.properties(Pair("version", version))
-    expand(inputs.properties)
+tasks{
+    register<Exec>("convey") {
+        val outputDir = "packages"
+        val dir = layout.buildDirectory.dir(outputDir)
+        outputs.dir(dir)
+        commandLine("conveyor", "--passphrase", "env:passphrase", "make", "--output-dir", dir.get(), "copied-site")
+        dependsOn("jar", "writeConveyorConfig")
+    }
+    processResources {
+        inputs.properties(Pair("version", version))
+        expand(inputs.properties)
+    }
 }
