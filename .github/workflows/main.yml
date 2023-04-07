@@ -1,11 +1,12 @@
 name: Deploy to GitHubPages
 
-on: [workflow_dispatch]
+on:
+  push:
 jobs:
   build:
     uses: .github/workflows/build.yml
   deploy:
-    needs: [build]
+    needs: [build-gradle-project]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
