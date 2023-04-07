@@ -17,17 +17,13 @@ repositories {
 }
 
 dependencies {
-    implementation(compose.desktop.windows_x64)
+    "linuxAmd64"(compose.desktop.linux_x64)
+    "macAmd64"(compose.desktop.macos_x64)
+    "macAarch64"(compose.desktop.macos_arm64)
+    "windowsAmd64"(compose.desktop.windows_x64)
 }
 
 tasks{
-    register<Exec>("convey") {
-        val outputDir = "packages"
-        val dir = layout.buildDirectory.dir(outputDir)
-        outputs.dir(dir)
-        commandLine("conveyor", "--passphrase", "env:passphrase", "make", "--output-dir", dir.get(), "copied-site")
-        dependsOn("jar", "writeConveyorConfig")
-    }
     processResources {
         inputs.properties(Pair("version", version))
         expand(inputs.properties)
