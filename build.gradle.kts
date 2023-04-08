@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-//    linuxAmd64(compose.desktop.linux_x64)
+    linuxAmd64(compose.desktop.linux_x64)
 //    macAmd64(compose.desktop.macos_x64)
 //    macAarch64(compose.desktop.macos_arm64)
     windowsAmd64(compose.desktop.windows_x64)
