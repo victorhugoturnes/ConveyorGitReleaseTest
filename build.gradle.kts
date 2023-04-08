@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.example"
-version = "1.0.4"
+version = "1.0.5"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(19))
 compose.desktop.application.mainClass = "MainKt"
 
@@ -17,9 +17,9 @@ repositories {
 }
 
 dependencies {
-    linuxAmd64(compose.desktop.linux_x64)
-    macAmd64(compose.desktop.macos_x64)
-    macAarch64(compose.desktop.macos_arm64)
+//    linuxAmd64(compose.desktop.linux_x64)
+//    macAmd64(compose.desktop.macos_x64)
+//    macAarch64(compose.desktop.macos_arm64)
     windowsAmd64(compose.desktop.windows_x64)
 }
 
