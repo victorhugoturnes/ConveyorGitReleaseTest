@@ -3,7 +3,7 @@ name: Deploy to GitHubPages
 on:
   push:
     branches:
-      - master
+      - dev
 jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
